@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
+import { Buffer } from "buffer";
+
 import {
   Button,
   CardImg,
@@ -28,7 +30,10 @@ class ActivitePost extends Component {
     if (isLoading) {
       return <p>Loading...</p>;
     }
-    console.log("HERE IMAGE SRC : ", activites[0].image);
+    let buffer = new Buffer(activites[0].image, "base64");
+    let imageSrc = buffer.toString();
+    console.log("HERE IMAGE SRC : ", imageSrc);
+    console.table(activites);
     return (
       <Fragment>
         <table>
@@ -37,14 +42,17 @@ class ActivitePost extends Component {
               <CardImg
                 top
                 width="100%"
-                src={activites.src}
+                src={`${new Buffer(activites[0].image.toString(), "base64")}`}
                 alt={activites.nom}
+                style={{ width: "300px", height: "300px" }}
               />
               <CardBody>
-                <CardTitle>{activite.nom}</CardTitle>
+                <CardTitle style={{ fontSize: "40px" }}>
+                  {activite.nom}
+                </CardTitle>
                 <CardSubtitle></CardSubtitle>
                 <CardText>{activite.description}</CardText>
-                <Button>Abonner</Button>
+                <Button>S'abonner</Button>
               </CardBody>
             </Card>
           ))}

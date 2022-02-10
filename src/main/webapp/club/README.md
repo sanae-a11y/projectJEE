@@ -1,10 +1,8 @@
-# Getting Started with Create React App
+# Project JEE with React (Fitness Club)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Les Maquettes
 
-## Available Scripts
-
-In the project directory, you can run:
+https://www.figma.com/file/Ro9eeqPiRYhHiJcHnlrz4L/jee-project?node-id=0%3A1
 
 ### `npm start`
 

@@ -18,6 +18,7 @@ ReactDOM.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/acceuil" element={<App />} />
       <Route path="/admin" element={<EAdmin />} />
       <Route path="/header" element={<Header />} />
       <Route path="/activites" element={<Activites />} />
