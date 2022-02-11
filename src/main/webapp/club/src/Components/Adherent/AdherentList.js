@@ -15,16 +15,17 @@ class AdherentList extends Component {
   }
 
   async remove(id) {
-    await fetch(`/adherents/${id}`, {
+    await fetch(`/api/adherents/${id}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-    }).then(() => {
+    }).then((res) => {
       let updatedAdherents = [...this.state.adherents].filter(
-        (i) => i.id !== id
+        (i) => i.id_adherant !== id
       );
+      console.log("Response" + res);
       this.setState({ adherents: updatedAdherents });
     });
   }
@@ -36,6 +37,7 @@ class AdherentList extends Component {
       return <p>Loading...</p>;
     }
     console.table("TTTTTTTTTTTTTT" + adherents);
+
     return (
       <div className="App">
         <header className="App-header">
@@ -77,18 +79,19 @@ class AdherentList extends Component {
                     <td key={adherent.id_adherant}>{adherent.activites.nom}</td>
                     <td>
                       <ButtonGroup>
-                        <Button
-                          size="sm"
-                          color="info"
-                          tag={Link}
-                          to={"/adherents/" + adherent.id_adherant}
-                        >
-                          Modifier
+                        <Button size="sm" color="info">
+                          <Link
+                            to={`/adherents/${adherent.id_adherant}`}
+                            key={adherent.id_adherant}
+                          >
+                            Modifier{" "}
+                          </Link>
                         </Button>
+
                         <Button
                           size="sm"
                           color="danger"
-                          onClick={() => this.remove(adherent.id_adherent)}
+                          onClick={() => this.remove(adherent.id_adherant)}
                         >
                           Spprimer
                         </Button>

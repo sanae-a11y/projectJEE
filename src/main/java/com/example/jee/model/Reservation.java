@@ -16,8 +16,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Abonnement")
-public class Abonnement {
+@Table(name = "Reservation")
+public class  Reservation  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
    private Long id_abonn;
@@ -30,6 +30,7 @@ public class Abonnement {
 	@Getter
 	@Setter
    private String prenom;
+   
 	
 	
 	

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 import {
   Button,
   Container,
@@ -28,12 +29,17 @@ class AdherentEdit extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   async componentDidMount() {
-    if (this.props.match.params.id_adherent !== "new") {
-      const adherent = await (
-        await fetch(`/adherents/${this.props.match.params.id_adherent}`)
+    console.log("ggggggggggggggggg", JSON.stringify(this.props));
+    if (this.props.match.params.id !== "new") {
+      console.log("UPDATEEEEEEEEEEE");
+      const adherents = await (
+        await fetch(`/api/adherents/${this.props.match.params.id}`)
       ).json();
-      this.setState({ item: adherent });
+      this.setState({ item: adherents });
+    } else {
+      console.log("INSEEEEERT");
     }
   }
 
@@ -50,7 +56,7 @@ class AdherentEdit extends Component {
     const { item } = this.state;
 
     await fetch(
-      "/adherents" + (item.id_adherent ? "/" + item.id_adherent : ""),
+      "/api/adherents" + (item.id_adherent ? "/" + item.id_adherent : ""),
       {
         method: item.id_adherent ? "PUT" : "POST",
         headers: {
@@ -60,22 +66,22 @@ class AdherentEdit extends Component {
         body: JSON.stringify(item),
       }
     );
-    this.props.history.push("/adherents");
+    this.props.history.push("/api/adherents");
   }
 
   render() {
     const { item } = this.state;
+
     const title = (
       <h2 style={{ fontFamily: "cursive sans-serif" }}>
         {item.id_adherent ? "Modifier Adherent" : "Ajouter Adherent"}
       </h2>
     );
-    console.log(item.id_adherent);
-    console.table("TEST " + item);
 
     return (
       <div>
         <HeaderAdmin />
+        {/* Id : {this.props.match.params.id} */}
         <Container
           style={{ width: "600px", marginTop: "3rem", marginLeft: "4em" }}
         >
@@ -143,4 +149,5 @@ class AdherentEdit extends Component {
     );
   }
 }
+
 export default AdherentEdit;

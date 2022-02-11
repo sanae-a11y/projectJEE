@@ -9,7 +9,7 @@ class ActiviteEdit extends Component {
     email: "",
   };
   async componentDidMount() {
-    if (this.props.match.params.id !== "new") {
+    if (this.props.params.id_adherent !== "new") {
       const activite = await (
         await fetch(`/activites-admin/${this.props.match.params.id}`)
       ).json();
@@ -40,6 +40,9 @@ class ActiviteEdit extends Component {
   }
 
   render() {
+    console.log(
+      "PAAAAAAAAAAAAAAAAAAAAA " + this.props.match.params.id_adherent
+    );
     const { item } = this.state;
     const title = <h2>{item.id ? "Edit Activite" : "Add Activite"}</h2>;
 
