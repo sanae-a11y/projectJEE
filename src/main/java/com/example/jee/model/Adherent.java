@@ -1,17 +1,20 @@
 package com.example.jee.model;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -37,9 +40,10 @@ public class Adherent {
 	@Getter
 	@Setter
 	private String password;
-	@Getter
-	@Setter
+	 
 	private String sexe;
+	 
+	 
 	public long getId_adherant() {
 		return id_adherant;
 	}
@@ -76,7 +80,7 @@ public class Adherent {
 	public void setActivites(List<Activite> activites) {
 		this.activites = activites;
 	}
-	@OneToMany
+	@OneToMany(fetch = FetchType.LAZY)
 	private List<Activite> activites ;
 
 }

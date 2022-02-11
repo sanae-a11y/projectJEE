@@ -39,10 +39,10 @@ export default class HeaderAdmin extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/acceuil">Acceuil</NavLink>
+                <NavLink href="/admin">Acceuil</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/activitesAdmin">Activités</NavLink>
+                <NavLink href="/activite">Activités</NavLink>
               </NavItem>
 
               <NavItem>
@@ -52,21 +52,9 @@ export default class HeaderAdmin extends React.Component {
                 <NavLink href="/centres">Réservations</NavLink>
               </NavItem>
 
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Logout
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    <NavLink href="/login/">Admin</NavLink>{" "}
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink href="/login/">Membre</NavLink>{" "}
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>Aide ?</DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+              <NavItem>
+                <NavLink href="/">Logout</NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { Table, ButtonGroup, Button } from "reactstrap";
 
 class AdherentList extends Component {
@@ -34,13 +35,29 @@ class AdherentList extends Component {
     if (isLoading) {
       return <p>Loading...</p>;
     }
-
+    console.table("TTTTTTTTTTTTTT" + adherents);
     return (
       <div className="App">
         <header className="App-header">
           <div className="App-intro">
-            <h2>List des Membres</h2>
-            <Table>
+            <h2 style={{ marginLeft: "4rem", marginTop: "2rem" }}>
+              List des Membres
+            </h2>
+            <div
+              className="float-right"
+              style={{ marginLeft: "4rem", marginTop: "2rem" }}
+            >
+              <Button color="secondary" tag={Link} to="/adherents/new">
+                Ajouter Adhérent
+              </Button>
+            </div>
+            <Table
+              style={{
+                marginLeft: "4rem",
+                marginRight: "4rem",
+                marginTop: "1rem",
+              }}
+            >
               <thead>
                 <tr>
                   <th>#</th>
@@ -62,17 +79,18 @@ class AdherentList extends Component {
                       <ButtonGroup>
                         <Button
                           size="sm"
-                          color="primary"
-                          to={"/clients/" + adherent.id_adherent}
+                          color="info"
+                          tag={Link}
+                          to={"/adherents/" + adherent.id_adherant}
                         >
-                          Edit
+                          Modifier
                         </Button>
                         <Button
                           size="sm"
                           color="danger"
                           onClick={() => this.remove(adherent.id_adherent)}
                         >
-                          Delete
+                          Spprimer
                         </Button>
                       </ButtonGroup>
                     </td>

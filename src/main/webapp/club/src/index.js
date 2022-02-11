@@ -2,29 +2,39 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import App from "./Components/App/App";
-import Login from "./Components/Login/Login";
+import App from "./App/App";
+import LoginAdmin from "./Components/Login/LoginAdmin";
+import LoginMembre from "./Components/Login/LoginMembre";
 import Header from "./Components/Header/Header";
-import Activites from "./Components/Activite/Activites";
-import EAdmin from "./Components/Admin/EAdmin";
-import Membre from "./Components/Admin/Membre";
-import AdminActivites from "./Components/Admin/AdminActivites";
+import Activites from "./App/Activites";
+import Activites1 from "./AdminApp/Activites";
+import EAdmin from "./AdminApp/EAdmin";
+import Membre from "./AdminApp/Membre";
 import AdherentEdit from "./Components/Adherent/AdherentEdit";
-import ListAdherentComponent from "./Components/Adherent/ListAdherentComponent";
+import Centre from "./Components/Centre/Centre";
+import EMembre from "./MembreApp/EMembre";
+import MActivites from "./MembreApp/MesActivites";
+import MAvis from "./MembreApp/Avis";
 // import Land from "./Components/Landing/Landing";
 
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/loginMembre" element={<LoginMembre />} />
+      <Route path="/loginAdmin" element={<LoginAdmin />} />
+      <Route path="/centres" element={<Centre />} />
       <Route path="/acceuil" element={<App />} />
       <Route path="/admin" element={<EAdmin />} />
+      <Route path="/membre" element={<EMembre />} />
       <Route path="/header" element={<Header />} />
       <Route path="/activites" element={<Activites />} />
       <Route path="/membres" element={<Membre />} />
-      <Route path="/activitesAdmin" element={<AdminActivites />} />
+      <Route path="/activite" element={<Activites1 />} />
       <Route path="/edit_adh/" element={<AdherentEdit />} />
+      <Route path="/myActivities" element={<MActivites />} />
+      <Route path="/avis" element={<MAvis />} />
+      <Route path="/adherents/:id_adherent" element={<AdherentEdit />} />
 
       {/* <Route path="/" element={<CardMeal />} />
     <Route path="/" element={<Search/>} />

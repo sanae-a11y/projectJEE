@@ -18,5 +18,6 @@ label {
   font-weight: 600;
 }
 .valid {
+  color: #111;
   background: #e35555;
 }

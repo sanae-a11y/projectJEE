@@ -33,6 +33,12 @@ public class Admin {
 	private String prenom;
 	@OneToOne
 	private Centre centre;
+	
+	
+	
+	
+	
+	
 	public int getId_admin() {
 		return id_admin;
 	}

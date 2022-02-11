@@ -54,13 +54,17 @@ export default class Header extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                    <NavLink href="/login/">Admin</NavLink>{" "}
+                    <NavLink href="/loginAdmin/" color="secandary">
+                      Admin
+                    </NavLink>{" "}
                   </DropdownItem>
                   <DropdownItem>
-                    <NavLink href="/login/">Membre</NavLink>{" "}
+                    <NavLink href="/loginMembre/" color="secandary">
+                      Membre
+                    </NavLink>{" "}
                   </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Aide ?</DropdownItem>
+                  <DropdownItem></DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
